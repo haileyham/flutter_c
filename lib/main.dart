@@ -15,7 +15,25 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      home: Image.asset('loopy.png')
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("It's App!"),
+        ),
+        body: Text('Hello World'),
+        bottomNavigationBar: BottomAppBar(
+          child: SizedBox(
+            height: 60,
+              child : Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Icon(Icons.call),
+                  Icon(Icons.chat),
+                  Icon(Icons.contact_page)],
+              )
+          )
+        )
+
+      )
     );
   }
 }
