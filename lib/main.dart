@@ -17,17 +17,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         home: Scaffold(
             appBar: AppBar(
-              title: Text("It's App!"),
+              title: Text("It's App!"), // AppBar에서 title 사용하면 왼쪽 제목
+              leading: Icon(Icons.star), // 왼쪽에 넣을 아이콘
+              actions: [Icon(Icons.star),Icon(Icons.star),Icon(Icons.star),] // [우측 아이콘들] 리스트
             ),
             body: SizedBox(
-              child: Text("Hello World",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Color(0xffaaaaaa),
-                    fontSize: 2,
-                    fontWeight: FontWeight.w900,
-                  )
-              )
+              // child: TextButton 할 경우( // TextButton(), IconButton(), ElevatedButton() 택 1
+                child: ElevatedButton( // effect 있는 button 할 경우 ElevatedButton
+                  child : Text('Button'),
+                  onPressed: (){},
+                  style:ButtonStyle(), // button design
+                )
             )
         )
     );
