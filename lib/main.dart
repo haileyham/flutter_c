@@ -15,25 +15,24 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("It's App!"),
-        ),
-        body: Text('Hello World'),
-        bottomNavigationBar: BottomAppBar(
-          child: SizedBox(
-            height: 60,
-              child : Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Icon(Icons.call),
-                  Icon(Icons.chat),
-                  Icon(Icons.contact_page)],
-              )
-          )
+        home: Scaffold(
+            appBar: AppBar(
+              title: Text("It's App!"),
+            ),
+            body: Align( //center 혹은 flex처럼 align안에 container child로 감싸서 정렬 가능
+              alignment: Alignment.bottomLeft, // 정렬위치 alignment 사용
+                child : Container( //child로 Container
+                    width:double.infinity, height:50, margin:EdgeInsets., padding:EdgeInsets.all(5), // width 100%주는것 double.infinity(부모내에서),
+                    // margin과 padding은 EdgeInsets.all할 수도 있지만 EdgeInsets.fromLTRB(10, 20, 30, 40)를 통해서 각각 줄 수 있음(왼,위,오,밑)
+                    decoration: BoxDecoration( // border 같은 것들 decoration에서 다룸.
+                        color:Colors.blue, // 사실 color는 width 등처럼 위에 해도 되는데, decoration을 사용할 경우 중복으로 될 수 없어서 decoration에다가 넣음
+                        border: Border.all(color:Colors.black), // border도 이렇게 주고, 참고로 color:Colors s빼먹지 말기
+                        borderRadius: BorderRadius.circular(10) // radius 구글링 해봤음 ㅇㅁㅇ 모르면 걍 구글링해보쟈꾸~ 새삼 css 그립넹
+                    ),
+                    child: Text('hello')
+                )
+            )
         )
-
-      )
     );
   }
 }
