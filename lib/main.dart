@@ -15,21 +15,60 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
-        home: Scaffold(
-            appBar: AppBar(
-              title: Text("It's App!"), // AppBar에서 title 사용하면 왼쪽 제목
-              leading: Icon(Icons.star), // 왼쪽에 넣을 아이콘
-              actions: [Icon(Icons.star),Icon(Icons.star),Icon(Icons.star),] // [우측 아이콘들] 리스트
-            ),
-            body: SizedBox(
-              // child: TextButton 할 경우( // TextButton(), IconButton(), ElevatedButton() 택 1
-                child: ElevatedButton( // effect 있는 button 할 경우 ElevatedButton
-                  child : Text('Button'),
-                  onPressed: (){},
-                  style:ButtonStyle(), // button design
-                )
-            )
-        )
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('금호동3가'),
+          actions : [ Icon(Icons.search), Icon(Icons.menu), Icon(Icons.add_alert ) ],
+          ),
+          body: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Container(
+                width:100,
+                height:100,
+                decoration: BoxDecoration(
+                    color: Colors.red,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Image.asset('loopy.png')
+              ),
+              Container(
+                width:500,
+                height:100,
+                color: Colors.red,
+                child:
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children:[
+                      Container(
+                        width:500,
+                        height:25,
+                        child:Text('Canon')
+                      ),
+                      Container(
+                          width:500,
+                          height:25,
+                          child:Text('컬럼동 · 끌올 10분 전')
+                      ),
+                      Container(
+                          width:500,
+                          height:25,
+                          child:Text('10,000원')
+                      ),
+                      Container(
+                          width:500,
+                          height:25,
+                          child: Row(
+                           mainAxisAlignment: MainAxisAlignment.center,
+                           children: [Icon(Icons.heart_broken), Text('4')],
+                          ),
+                      )
+                    ]
+                  )
+              )
+            ],
+          ),
+        ),
     );
   }
 }
